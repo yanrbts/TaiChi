@@ -1,0 +1,26 @@
+#define TCH_CONFIGURE ""
+
+#ifndef TCH_COMPILER
+#define TCH_COMPILER  "gcc 11.3.0 (Debian 11.3.0-3) "
+#endif
+
+
+#ifndef TCH_HAVE_GCC_ATOMIC
+#define TCH_HAVE_GCC_ATOMIC  1
+#endif
+
+
+#ifndef TCH_HAVE_C99_VARIADIC_MACROS
+#define TCH_HAVE_C99_VARIADIC_MACROS  1
+#endif
+
+
+#ifndef TCH_HAVE_GCC_VARIADIC_MACROS
+#define TCH_HAVE_GCC_VARIADIC_MACROS  1
+#endif
+
+
+#ifndef TCH_HAVE_GCC_BSWAP64
+#define TCH_HAVE_GCC_BSWAP64  1
+#endif
+

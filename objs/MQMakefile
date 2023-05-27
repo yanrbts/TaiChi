@@ -1,0 +1,99 @@
+
+CC =	cc
+CFLAGS =  -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g 
+CPP =	cc -E
+LINK =	$(CC)
+
+
+ZYRE_INCS = -I src/mq \
+	-I objs
+
+
+ZYRE_DEPS = src/mq/zyre_library.h \
+	src/mq/zyre_classes.h \
+	src/mq/zre_msg.h \
+	src/mq/zyre_election.h \
+	src/mq/zyre_event.h \
+	src/mq/zyre_group.h \
+	src/mq/zyre_node.h \
+	src/mq/zyre_peer.h \
+	src/mq/zyre.h
+
+
+ZYRE_INCS = -I src/mq \
+	-I objs
+
+
+build:	binary
+
+binary:	objs/zyre.a
+
+objs/zyre.a: objs/src/mq/zre_msg.o \
+	objs/src/mq/zyre_election.o \
+	objs/src/mq/zyre_event.o \
+	objs/src/mq/zyre_group.o \
+	objs/src/mq/zyre_node.o \
+	objs/src/mq/zyre_peer.o \
+	objs/src/mq/zyre.o
+	$(LINK) -o objs/zyre.a \
+	objs/src/mq/zre_msg.o \
+	objs/src/mq/zyre_election.o \
+	objs/src/mq/zyre_event.o \
+	objs/src/mq/zyre_group.o \
+	objs/src/mq/zyre_node.o \
+	objs/src/mq/zyre_peer.o \
+	objs/src/mq/zyre.o
+	
+
+
+modules:
+
+
+objs/src/mq/zre_msg.o:	$(ZYRE_DEPS) \
+	src/mq/zre_msg.c
+	$(CC) -c $(CFLAGS) $(ZYRE_INCS) \
+		-o objs/src/mq/zre_msg.o \
+		src/mq/zre_msg.c
+
+
+objs/src/mq/zyre_election.o:	$(ZYRE_DEPS) \
+	src/mq/zyre_election.c
+	$(CC) -c $(CFLAGS) $(ZYRE_INCS) \
+		-o objs/src/mq/zyre_election.o \
+		src/mq/zyre_election.c
+
+
+objs/src/mq/zyre_event.o:	$(ZYRE_DEPS) \
+	src/mq/zyre_event.c
+	$(CC) -c $(CFLAGS) $(ZYRE_INCS) \
+		-o objs/src/mq/zyre_event.o \
+		src/mq/zyre_event.c
+
+
+objs/src/mq/zyre_group.o:	$(ZYRE_DEPS) \
+	src/mq/zyre_group.c
+	$(CC) -c $(CFLAGS) $(ZYRE_INCS) \
+		-o objs/src/mq/zyre_group.o \
+		src/mq/zyre_group.c
+
+
+objs/src/mq/zyre_node.o:	$(ZYRE_DEPS) \
+	src/mq/zyre_node.c
+	$(CC) -c $(CFLAGS) $(ZYRE_INCS) \
+		-o objs/src/mq/zyre_node.o \
+		src/mq/zyre_node.c
+
+
+objs/src/mq/zyre_peer.o:	$(ZYRE_DEPS) \
+	src/mq/zyre_peer.c
+	$(CC) -c $(CFLAGS) $(ZYRE_INCS) \
+		-o objs/src/mq/zyre_peer.o \
+		src/mq/zyre_peer.c
+
+
+objs/src/mq/zyre.o:	$(ZYRE_DEPS) \
+	src/mq/zyre.c
+	$(CC) -c $(CFLAGS) $(ZYRE_INCS) \
+		-o objs/src/mq/zyre.o \
+		src/mq/zyre.c
+
